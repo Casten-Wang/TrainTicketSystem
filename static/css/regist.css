@@ -1,0 +1,141 @@
+body {
+    /* font-family: Roboto;
+	background-color: #e76f51; */
+    background: url(../img/5.jpg);
+    background-size: 2100px 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.regist {
+    background-color: #0b132b;
+    width: 400px;
+    color: #f8f9fa;
+    padding: 40px;
+    opacity: 0.5;
+    border-radius: 22px;
+    box-shadow: 10px 10px 25px #00000080;
+    text-align: center;
+}
+
+.regist input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background: none;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 22px;
+    outline: none;
+    color: #c0c4c9;
+}
+
+.regist input[type="text"],
+.regist input[type="password"] {
+    border: 2px solid rgb(245, 244, 244);
+    width: 220px;
+}
+
+.regist input[type="submit"] {
+    width: 150px;
+    border: 2px solid #f2f5f3;
+    cursor: pointer;
+}
+
+
+.regist input[type="text"]:focus,
+.regist input[type="password"]:focus {
+    border-color: #b7b9b8;
+    width: 280px;
+    transition: 0.5s;
+}
+
+.regist input[type="submit"]:hover {
+    background-color: #f3f7f5;
+    transition: 0.5s;
+}
+
+
+/*性别*/
+.male,
+.female {
+    display: inline-block;
+    padding: 20px;
+
+}
+
+.sex .male,
+.sex .female {
+    position: relative;
+    width: 4rem;
+    height: 3.9rem;
+    z-index: 1;
+    line-height: 3.9rem;
+    text-align: center;
+}
+
+.sex .male label,
+.sex .female label {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: 3.9rem;
+    z-index: 3;
+    opacity: 0;
+    margin: auto;
+    display: inline-block;
+    line-height: 3.9rem;
+    cursor: pointer;
+}
+
+.sex input {
+    display: inline-block;
+    vertical-align: middle;
+    /*让默认的单选样式的圆圈和“男”“女”的文本没有高差，看起来在同一水平线*/
+    height: 2.8rem;
+    line-height: 2.8rem;
+    margin: 0;
+    /*清除浏览器默认的外边距*/
+}
+
+.sex .male span.btn,
+.sex .female span.btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: 2.8rem;
+    z-index: 2;
+    margin: auto;
+    display: inline-block;
+    line-height: 2.6rem;
+    text-align: center;
+    border: .1rem solid #fe5454;
+    color: #fe5454;
+}
+
+.sex .male span {
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+}
+
+.sex .female span {
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+}
+
+.sex .male span.active,
+.sex .female span.active {
+    background-color: #fe5454;
+    color: #fff;
+}

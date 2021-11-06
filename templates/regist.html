@@ -1,0 +1,53 @@
+{% block content %}
+
+<!--注册模块-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>注册页面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/regist.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <form class="regist" method="get" action='/registuser'>
+        <h1 id="rt">用户注册</h1>
+        <input type="text" name="user" placeholder="用户名" value="" required="">
+        {% for msg in get_flashed_messages() %}
+        <p style="color: red">{{ msg }}</p>
+        {% endfor %}
+        <input type="password" name="password" placeholder="密码" value="" required="">
+        <div class="sex">
+            <div class="select fr">
+                <div class="male fl">
+                    <label for="male">
+                        <input type="radio" name="sex" id="male" value="男" checked>男
+                    </label>
+                    <span class="btn active">男</span>
+                </div>
+                <div class="female fl">
+                    <label for="female">
+                        <input type="radio" name="sex" id="female" value="女">女
+                    </label>
+                    <span class="btn">女</span>
+                </div>
+            </div>
+        </div>
+        <input type="text" name="age" placeholder="年龄" value="" required="">
+        <input type="text" name="IDcard" placeholder="身份证号" value="" required="">
+        <input type="submit" value="注册">
+        <p>已有账号? <a href="/login"> 立即登录!</a></p>
+    </form>
+    <script>
+        $(".select label").click(function () {
+            $(this).siblings("span").addClass("active");
+            $(this).parent().siblings("div").find("span").removeClass("active");
+        });
+    </script>
+</body>
+
+</html>
+{% endblock %}

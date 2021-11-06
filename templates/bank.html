@@ -1,0 +1,23 @@
+{% block content %}
+<!--银行卡绑定模块-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>绑定银行卡</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/login.css" rel="stylesheet">
+</head>
+
+<body>
+    <form class="login" method="GET" action='/bankuser/{{name}}'>
+        <h1>绑定银行卡</h1>
+        <input type="text" name="bankid" value="" required="" placeholder="银行卡号" />
+        <input type="password" name="balance" value="" required="" placeholder="初始金额" />
+        <input type="submit" value="绑定" />
+    </form>
+</body>
+
+</html>
+{% endblock %}

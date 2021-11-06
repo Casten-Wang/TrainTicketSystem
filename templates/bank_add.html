@@ -1,0 +1,23 @@
+{% block content %}
+<!--银行卡充值-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>银行卡充值</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/login.css" rel="stylesheet">
+</head>
+
+<body>
+    <form class="login" method="GET" action='/bank_add_user/{{name}}'>
+        <h1>银行卡充值</h1>
+        <input type="text" name="bankid" value="" required="" placeholder="银行卡号" />
+        <input type="password" name="addmoney" value="" required="" placeholder="充值金额" />
+        <input type="submit" value="充值" />
+    </form>
+</body>
+
+</html>
+{% endblock %}

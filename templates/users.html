@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Add.css">
+    <script type="text/javascript" src="../static/js/Add.js"></script>
+</head>
+
+<body>
+    <input type="button" id="open" value="点击按钮打开弹框">
+    <div id="container">
+        <!-- 背景黑色遮罩 -->
+        <div id="hidden"></div>
+        <div id="box">
+            <strong id="close">关闭</strong>
+            <span>输入账号：<input type="text" placeholder="输入账号"></span>
+            <span>输入密码：<input type="password" placeholder="输入密码"></span>
+            <input type="button" value="登录" id="login">
+        </div>
+    </div>
+    <script>
+        var open = my$('open');
+        var box = my$('box');
+        var hidden = my$('hidden');
+        var close = my$('close');
+        open.onclick = function () {
+            box.style.display = 'flex';
+            hidden.style.display = 'block';
+        }
+        close.onclick = function () {
+            box.style.display = 'none';
+            hidden.style.display = 'none';
+            box.style.top = '200px';
+            box.style.left = '';
+        }
+    </script>
+</body>
+
+</html>
