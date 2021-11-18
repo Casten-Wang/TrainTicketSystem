@@ -6,12 +6,12 @@
     <title>注册页面</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../static/css/regist.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/statics/css/regist.css" rel="stylesheet" type="text/css" media="all">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 
 <body>
-<form class="regist" method="POST" action='/regist/'>
+<form class="regist" method="POST" action=''>
     {% csrf_token %}
     <h1 id="rt">用户注册</h1>
     <input type="text" name="username" placeholder="用户名" value="" required="">
@@ -20,13 +20,13 @@
         <div class="male fl">
             <div class="select fr">
                 <label for="male">
-                    <input type="radio" name="sex" id="male" value="1" checked>男
+                    <input type="radio" name="sex" id="male" value="男" checked>男
                 </label>
                 <span class="btn active">男</span>
             </div>
             <div class="female fl">
                 <label for="female">
-                    <input type="radio" name="sex" id="female" value="2" checked>女
+                    <input type="radio" name="sex" id="female" value="女" checked>女
                 </label>
                 <span class="btn">女</span>
             </div>
@@ -35,7 +35,7 @@
     <input type="text" name="age" placeholder="年龄" value="" required="">
     <input type="text" name="id_card" placeholder="身份证号" value="" required="">
     <input type="submit" value="注册">
-    <p>已有账号? <a href="/login/"> 立即登录!</a></p>
+    <p>已有账号? <a href="/user/login"> 立即登录!</a></p>
 </form>
 <script>
     $(".select label").click(function () {

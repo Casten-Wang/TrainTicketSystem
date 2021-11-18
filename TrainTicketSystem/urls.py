@@ -1,9 +1,10 @@
 from django.contrib import admin
+from django.urls import path, include
 from TrainTicketSystem import views
-from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('regist/', views.regist),
-    path('login/', views.login),
+    path('', views.login),
+    path('user/', include('UserDB.urls')),
+    path('index/', include('TrainTicketDB.urls')),
 ]

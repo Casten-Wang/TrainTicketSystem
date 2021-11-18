@@ -1,30 +1,30 @@
 {% extends "bootstrap/base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/nav.css">
-    <script src="../static/js/Add.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/statics/css/main.css">
+        <link rel="stylesheet" href="/statics/css/nav.css">
+        <script src="/statics/js/Add.js"></script>
+    </head>
 
-<body>
+    <body>
     <ul>
-        <li><a href="/bank_add/{{name}}">余额：{{balance}}</a></li>
+        <li><a href="/bank_add/{{ name }}">余额：{{ balance }}</a></li>
         <li style="float:right"><a href="#about">个人资料</a></li>
-        <li style="float:right"><a href="/">返回注册</a></li>
-        <li style="float:right"><a href="/login">返回登录</a></li>
+        <li style="float:right"><a href="/user/regist">返回注册</a></li>
+        <li style="float:right"><a href="/user/login">返回登录</a></li>
     </ul>
     <div id="container">
         <!-- 背景黑色遮罩 -->
         <div id="hidden"></div>
         <div id="box">
             <strong id="close">关闭</strong>
-            <form id="buy_form" method="" action="/main/{{name}}/buy" onsubmit="return checkForm()">
+            <form id="buy_form" method="POST" action="/main/{{ name }}/buy" onsubmit="return checkForm()">
                 <span>
                     <input id="input1" name="train" type="text" style="display: none" placeholder="车次号">
                 </span>
@@ -41,7 +41,7 @@
             </form>
         </div>
     </div>
-    <form class="form-inline" action="/main/{{name}}">
+    <form class="form-inline" action="/main/{{ name }}">
         <div class="form-group">
             <label>出发地</label>
             <input name="origin" type="text" value="" required="">
@@ -86,14 +86,14 @@
             </th>
         </tr>
         {% for i in content %}
-        <tr>
-            {% for j in i[0:-1] %}
-            <td>{{j}}</td>
-            {% endfor %}
-            <td class="buybutton">
-                <button>订票</button>
-            </td>
-        </tr>
+            <tr>
+                {% for j in i[0:-1] %}
+                    <td>{{ j }}</td>
+                {% endfor %}
+                <td class="buybutton">
+                    <button>订票</button>
+                </td>
+            </tr>
         {% endfor %}
     </table>
     <!-- 空的div用来放分页后的表格 -->
@@ -158,6 +158,7 @@
             var form = document.getElementById('buy_form');
             form.submit();
         }
+
         var buy = document.getElementById("buy");
         buy.onclick = function () {
             alert("购票成功");
@@ -211,10 +212,12 @@
             if (currentPage < totalPage) {
                 tempStr += "<a href=\"#\" onClick=\"goPage(" + (currentPage + 1) + "," + psize +
                     ")\">下一页>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>";
-                for (var j = 1; j <= totalPage; j++) {}
+                for (var j = 1; j <= totalPage; j++) {
+                }
             } else {
                 tempStr += "  下一页>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                for (var j = 1; j <= totalPage; j++) {}
+                for (var j = 1; j <= totalPage; j++) {
+                }
             }
             document.getElementById("barcon").innerHTML = tempStr;
             // itable.rows[0].style.display = "block";
@@ -236,7 +239,7 @@
             box.style.left = '';
         }
     </script>
-</body>
+    </body>
 
-</html>
+    </html>
 {% endblock %}
