@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/SQL操作/数据csv/changedTrain.csv" charset="GBK" />
     <file url="file://$PROJECT_DIR$/SQL操作/数据csv/districtcode.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SQL操作/数据csv/myTrain.csv" charset="GBK" />
   </component>
 </project>

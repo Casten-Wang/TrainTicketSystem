@@ -6,8 +6,9 @@
 
 
 from django.urls import path
-from TrainTicketDB import views
+from TrainDB import views
 
 urlpatterns = [
     path('main/', views.main),
+    path('train/', views.showtrain),
 ]

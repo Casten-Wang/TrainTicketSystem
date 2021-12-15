@@ -8,6 +8,6 @@ from django.urls import path, include
 from UserDB import views
 
 urlpatterns = [
-    path('regist/', views.regist),
-    path('login/', views.login),
+    path('regist/', views.userregist),
+    path('login/', views.userlogin),
 ]

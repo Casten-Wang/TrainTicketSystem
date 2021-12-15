@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 
 
 # 用户注册
-def regist(request):
+def userregist(request):
     if request.method == "POST":
         user_regist_form = UserRegisterForm(data=request.POST)
         print("!!!!!!!!!!!!")
@@ -15,13 +15,14 @@ def regist(request):
             data = user_regist_form.cleaned_data
             print(data)
             User.objects.create_user(username=data["username"], password=data["password"], sex=data["sex"], age=data["age"], id_card=data["id_card"])
+            return redirect('/user/login/')
         else:
             print(user_regist_form.errors)
     return render(request, 'regist.html')
 
 
 # 用户登录
-def login(request):
+def userlogin(request):
     if request.method == "POST":
         user_login_form = UserLoginForm(data=request.POST)
         if user_login_form.is_valid():
@@ -29,7 +30,7 @@ def login(request):
             user = authenticate(username=data["username"], password=data["password"])
             if user:
                 login(request, user)
-                return redirect('/index/')
+                return redirect('/index/main')
         else:
             print(user_login_form.errors)
     return render(request, 'login.html')

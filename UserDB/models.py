@@ -7,3 +7,4 @@ class User(AbstractUser):
     sex = models.CharField(max_length=5)
     age = models.IntegerField()
     id_card = models.CharField(max_length=20)
+    balance = models.FloatField(default=0)
