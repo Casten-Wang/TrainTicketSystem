@@ -1,0 +1,129 @@
+#all {
+    margin: 0;
+    padding: 0;
+    background: url('../img/train2.jpg');
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#result {
+    position: absolute;
+    margin-top: 10%;
+    height: 30%;
+    width: 90%;
+    left: 5%;
+    background: #fff;
+    border-radius: 35px;
+    opacity: 0.9;
+}
+
+#head {
+    position: absolute;
+    margin-top: 0%;
+    margin-left: 5%;
+    height: 25%;
+    width: 90%;
+}
+
+#where {
+    color: blue;
+    font-size: 200%;
+    font-family: Fantasy;
+}
+
+#order {
+    float: right;
+    margin-top: 1%;
+}
+
+#order:hover {
+    color: blue;
+    float: right;
+    cursor: pointer;
+}
+
+#middle {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 4%;
+    height: 70%;
+    width: 90%;
+}
+
+
+#leave_city {
+    position: absolute;
+    margin-left: 2%;
+    width: 25%;
+    height: 95%;
+    float: left;
+    background: #f8f8f8;
+    border-radius: 10%;
+}
+
+#arrive_city {
+    float: left;
+    position: absolute;
+    margin-left: 27%;
+    width: 25%;
+    height: 95%;
+    background: #f8f8f8;
+    border-radius: 10%;
+}
+
+#start, #end {
+    position: absolute;
+    font-size: 120%;
+    margin-top: 5%;
+    margin-left: 20%;
+    color: #999;
+}
+
+#start_city, #end_city, #start_date {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+#arrive_time {
+    float: left;
+    position: absolute;
+    margin-left: 57%;
+    width: 25%;
+    height: 95%;
+    background: #f8f8f8;
+    border-radius: 10%;
+}
+
+#research {
+    float: left;
+    position: absolute;
+    margin-left: 87%;
+    margin-top: 2%;
+    width: 8%;
+    height: 60%;
+    background: #0086f6;
+    border-radius: 20%;
+    color: white;
+}
+
+#research:hover {
+    background-color: #FF3CAC;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    float: left;
+    position: absolute;
+    margin-left: 87%;
+    margin-top: 2%;
+    width: 8%;
+    height: 60%;
+    color: white;
+}
+
+#go {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 28%;
+    color: white;
+}

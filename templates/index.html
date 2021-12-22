@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>火车票预订系统</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="all">
+    <div id="result">
+    <span id="head">
+        <span id="where">Where would you go ?</span>
+        <span id="order">
+            <span>火车票订单</span>
+            <span class="glyphicon glyphicon-menu-right"></span>
+        </span>
+    </span>
+
+        <form action="/train/{{ name }}">
+        <span id="middle">
+            <span id="leave_city">
+                <label id="start">出发城市</label>
+                <div>
+                    <input type="text" id="start_city" name="start_city">
+                </div>
+            </span>
+            <span id="arrive_city">
+                <label id="end">到达城市</label>
+                <div>
+                    <input type="text" id="end_city" name="end_city">
+                </div>
+            </span>
+            <span id="arrive_time">
+                <label id="start" name="start_time">出发日期</label>
+                <div>
+                    <input type="date" id="start_date" name="start_date" value={{ start_date }}>
+                </div>
+            </span>
+            <button id="research" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </button>
+        </span>
+        </form>
+    </div>
+</div>
+</body>
+</html>
