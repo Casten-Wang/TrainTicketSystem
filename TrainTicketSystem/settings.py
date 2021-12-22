@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure--&05f2bwdr$#gci#fj0^e2zj6$fmjw75v41oj+*dqr9#28b1o4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Mysql_TrainSystem',  # 数据库名称
-        'HOST': '127.0.0.1',  # 数据库地址，本机 ip 地址 127.0.0.1
+        'HOST': '139.224.227.112',  # 数据库地址，本机 ip 地址 127.0.0.1
         'PORT': 3306,  # 端口
-        'USER': 'root',  # 数据库用户名
-        'PASSWORD': '989007',  # 数据库密码
+        'USER': 'admin',  # 数据库用户名
+        'PASSWORD': '12345',  # 数据库密码
     }
 }
 
