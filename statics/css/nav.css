@@ -1,36 +1,28 @@
-ul {
+div.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #262626;
 }
 
-li {
+div.nav li {
     float: left;
     border-right: 1px solid #bbb;
 }
 
-li:last-child {
+div.nav li:last-child {
     border-right: none;
 }
 
-li a {
+div.nav li a, div.nav li div {
     display: block;
-    color: white;
+    color: #f6f6f1;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+div.nav li a:hover:not(.active) {
     background-color: #111;
-}
-
-
-
-
-#container {
-    display: flex;
-    justify-content: center;
 }

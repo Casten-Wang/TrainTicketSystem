@@ -11,35 +11,35 @@
 </head>
 
 <body>
-<ul>
-    <li><a href="/bank_add/{{ name }}">余额：{{ balance }}</a></li>
-    <li style="float:right"><a href="#about">个人资料</a></li>
-    <li style="float:right"><a href="/user/regist">返回注册</a></li>
-    <li style="float:right"><a href="/user/login">返回登录</a></li>
-</ul>
+<div class="nav">
+    <ul>
+        <li style="float:right">
+            <a href="/user/login">登出</a>
+        </li>
+        <li style="float:right">
+            <div>余额 {{ user.balance }}</div>
+        </li>
+        <li style="float:right">
+            <div> {{ user.username }}</div>
+        </li>
+    </ul>
+</div>
+
 <div id="container">
     <!-- 背景黑色遮罩 -->
     <div id="hidden"></div>
     <div id="box">
         <strong id="close">关闭</strong>
-        <form id="buy_form" method="POST" action="/main/{{ name }}/buy" onsubmit="return checkForm()">
-                <span>
-                    <input id="input1" name="train" type="text" style="display: none" placeholder="车次号">
-                </span>
-            <span>
-                    <input id="input2" name="begintime" type="text" style="display: none" placeholder="出发时间">
-                </span>
-            <span>
-                    <input id="input3" name="endtime" type="text" style="display: none" placeholder="到达时间">
-                </span>
-            <span>
-                    <input id="input4" name="price" type="text" style="display: none" placeholder="票价">
-                </span>
+        <form id="buy_form" method="POST"
+              action="/index/train/?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}"
+              onsubmit="return checkForm()">
+            {% csrf_token %}
             <input type="submit" value="购票" id="buy">
         </form>
     </div>
 </div>
 <form class="form-inline" action="/index/train/">
+    {% csrf_token %}
     <div class="form-group">
         <label>出发地</label>
         <input name="origin" type="text" value="" required="">
@@ -58,42 +58,27 @@
 </form>
 <table id="table_result" class="table table-bordered table-hover">
     <tr>
-        <th>
-            车次号
-        </th>
-        <th>
-            可载人数
-        </th>
-        <th>
-            出发时间
-        </th>
-        <th>
-            到达时间
-        </th>
-        <th>
-            出发地
-        </th>
-        <th>
-            目的地
-        </th>
-        <th>
-            票价
-        </th>
-        <th>
-            操作
-        </th>
+        <th>车次号</th>
+        <th>可载人数</th>
+        <th>出发时间</th>
+        <th>到达时间</th>
+        <th>出发地</th>
+        <th>目的地</th>
+        <th>一等座</th>
+        <th>二等座</th>
+        <th>操作</th>
     </tr>
     {% for i in page %}
         <tr>
             <td>{{ i.train }}</td>
             <td>{{ i.maxpeople }}</td>
-            <td>{{ i.begintime|date:"Y-m-d h:i:s" }}</td>
-            <td>{{ i.endtime|date:"Y-m-d h:i:s" }}</td>
+            <td>{{ i.begintime|date:"Y-m-d H:m:s" }}</td>
+            <td>{{ i.endtime|date:"Y-m-d H:m:s" }}</td>
             <td>{{ i.origin }}</td>
             <td>{{ i.destination }}</td>
             <td>{{ i.firstclassprice }}</td>
             <td>{{ i.secondclassprice }}</td>
-            <td class="buybutton">
+            <td class="buybutton{{ i }}" onclick="capture(this)">
                 <button>订票</button>
             </td>
         </tr>
@@ -101,60 +86,59 @@
 </table>
 <div class="mypage">
     {% if page.has_previous %}
-        <a href="?page=1">|&lt;第一页</a>
-        <a href="?page={{ page.previous_page_number }}">前一页</a>
+        <a href="?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}&page=1">|&lt;第一页</a>
+        <a href="?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}&page={{ page.previous_page_number }}">前一页</a>
     {% endif %}
     Page {{ page.number }} of {{ page.paginator.num_pages }}
     {% if page.has_next %}
-        <a href="?page={{ page.next_page_number }}">下一页</a>
-        <a href="?page={{ page.paginator.num_pages }}">最末页&gt;|</a>
+        <a href="?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}&page={{ page.next_page_number }}">下一页</a>
+        <a href="?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}&page={{ page.paginator.num_pages }}">最末页&gt;|</a>
     {% endif %}
 </div>
 
+<script>
+    function capture(data) {
+        var box = my$('box');
+        var hidden = my$('hidden');
+        var close = my$('close');
+        var mybutton = document.getElementsByClassName(data.className);
+        box.style.display = 'flex';
+        hidden.style.display = 'block';
+        var parent = mybutton[0].parentNode;
+        var brother1 = parent.children[0].innerText;
+        var brother2 = parent.children[2].innerText;
+        var brother3 = parent.children[3].innerText;
+        var brother4 = parent.children[6].innerText;
+        alert(brother4)
+        var form = document.getElementById('buy_form');
+        var label = document.createElement("label");
+        form.appendChild(label);
+        t1 = "你购买的车次为：";
+        t2 = "出发时间：";
+        t3 = "到达时间：";
+        t4 = "票价：";
+        var text1 = document.createTextNode(t1 + brother1);
+        var text2 = document.createTextNode(t2 + brother2);
+        var text3 = document.createTextNode(t3 + brother3);
+        var text4 = document.createTextNode(t4 + brother4);
+        var ele1 = document.createElement("p");
+        label.appendChild(ele1);
+        ele1.appendChild(text1);
+        alert("123")
+        var ele2 = document.createElement("p");
+        label.appendChild(ele2);
+        ele2.appendChild(text2);
+        var ele3 = document.createElement("p");
+        label.appendChild(ele3);
+        ele3.appendChild(text3);
+        var ele4 = document.createElement("p");
+        label.appendChild(ele4);
+        ele4.appendChild(text4);
+    }
+</script>
 
 <script>
-    var box = my$('box');
-    var hidden = my$('hidden');
     var close = my$('close');
-    var mybutton = document.getElementsByClassName("buybutton");
-    for (var i = 0; i < mybutton.length; i++) {
-        mybutton[i].onclick = function () {
-            box.style.display = 'flex';
-            hidden.style.display = 'block';
-            var parent = this.parentNode;
-            var brother1 = parent.children[0].innerText;
-            var brother2 = parent.children[2].innerText;
-            var brother3 = parent.children[3].innerText;
-            var brother4 = parent.children[6].innerText;
-            $("#input1").val(brother1);
-            $("#input2").val(brother2);
-            $("#input3").val(brother3);
-            $("#input4").val(brother4);
-            var form = document.getElementById('buy_form');
-            var label = document.createElement("label");
-            form.appendChild(label);
-            t1 = "你购买的车次为：";
-            t2 = "出发时间：";
-            t3 = "到达时间：";
-            t4 = "票价：";
-            var text1 = document.createTextNode(t1 + brother1);
-            var text2 = document.createTextNode(t2 + brother2);
-            var text3 = document.createTextNode(t3 + brother3);
-            var text4 = document.createTextNode(t4 + brother4);
-            var ele1 = document.createElement("p");
-            label.appendChild(ele1);
-            ele1.appendChild(text1);
-            var ele2 = document.createElement("p");
-            label.appendChild(ele2);
-            ele2.appendChild(text2);
-            var ele3 = document.createElement("p");
-            label.appendChild(ele3);
-            ele3.appendChild(text3);
-            var ele4 = document.createElement("p");
-            label.appendChild(ele4);
-            ele4.appendChild(text4);
-        }
-    }
     close.onclick = function () {
         var paras = document.getElementsByTagName("label");
         for (i = 0; i < paras.length; i++) {
@@ -178,6 +162,7 @@
         alert("购票成功");
     }
 </script>
+
 <script>
     var open = my$('open');
     var box = my$('box');

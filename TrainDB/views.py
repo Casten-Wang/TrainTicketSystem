@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.db.models import Q
@@ -11,19 +13,20 @@ def main(request):
 
 
 def showtrain(request):
-    if request.method == "GET":
-        print("车次查询")
-        print()
-        myDate = request.GET["begintime"]
-        print(myDate)
-        myyear, mymonth, myday = myDate.split('-')
-        print(myyear)
-        print(mymonth)
-        print(myday)
-        trainlst = TrainTable.objects.filter(Q(origin=request.GET["origin"]) & Q(destination=request.GET["destination"]) & Q(begintime__year=myyear, begintime__month=mymonth, begintime__day=myday))
-        print(trainlst)
-        print(len(trainlst))
-        paginator = Paginator(trainlst, 10)
-        current_num = request.GET.get('page')
-        page = paginator.get_page(current_num)
-        return render(request, 'train.html', {"page": page})
+    if request.method == "POST":
+        print("提交购票信息")
+        print(request.POST)
+    print("车次查询")
+    myorigin = request.GET["origin"]
+    mydestination = request.GET["destination"]
+    myDate = request.GET["begintime"]
+    print(myDate)
+    myyear, mymonth, myday = myDate.split('-')
+    datetime_filter = datetime(int(myyear), int(mymonth), int(myday))
+    trainlst = TrainTable.objects.filter(Q(origin=request.GET["origin"]) & Q(destination=request.GET["destination"]) & Q(begintime__startswith=datetime_filter.date()))
+    print(trainlst)
+    print(len(trainlst))
+    paginator = Paginator(trainlst, 10)
+    current_num = request.GET.get('page')
+    page = paginator.get_page(current_num)
+    return render(request, 'train.html', locals())
