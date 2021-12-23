@@ -48,10 +48,12 @@
             </label>
             <div class="seatclass">
                 <div class="seatDiv">
-                    <input type="radio" name="Seat" value="一等座">一等座票价：
+                    <input type="radio" name="Seat" value="一等座">
+                    <span>一等座票价：</span>
                 </div>
                 <div class="seatDiv">
-                    <input type="radio" name="Seat" value="二等座" checked>二等座票价：
+                    <input type="radio" name="Seat" value="二等座" checked>
+                    <span>二等座票价：</span>
                 </div>
             </div>
             <div class="mysubmit">
@@ -132,8 +134,11 @@
         p3.innerText = p3.innerText.substr(0, 5) + brother3;
         var seatdiv = document.getElementsByClassName("seatclass")[0];
         var seatDiv1 = seatdiv.children[0];
-        seatDiv1.innerText = seatDiv1.innerText +
-
+        var span1 = seatDiv1.children[1];
+        span1.innerText = span1.innerHTML.substr(0, 6) + brother4;
+        var seatDiv2 = seatdiv.children[1];
+        var span2 = seatDiv2.children[1];
+        span2.innerText = span2.innerText.substr(0, 6) + brother5;
     }
 </script>
 
