@@ -41,7 +41,23 @@
               action="/index/train/?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}"
               onsubmit="return checkForm()">
             {% csrf_token %}
-            <input type="submit" value="购票" id="buy">
+            <label>
+                <p>你购买的车次为：</p>
+                <p>出发时间：</p>
+                <p>到达时间：</p>
+            </label>
+            <div class="seatclass">
+                <div class="seatDiv">
+                    <input type="radio" name="Seat" value="一等座">一等座票价：
+                </div>
+                <div class="seatDiv">
+                    <input type="radio" name="Seat" value="二等座" checked>二等座票价：
+                </div>
+            </div>
+            <div class="mysubmit">
+                <input type="submit" value="购票" id="buy">
+            </div>
+
         </form>
     </div>
 </div>
@@ -91,6 +107,8 @@
 </div>
 
 <script>
+    {# 点击订票 #}
+
     function capture(data) {
         var box = my$('box');
         var hidden = my$('hidden');
@@ -103,43 +121,25 @@
         var brother2 = parent.children[2].innerText;
         var brother3 = parent.children[3].innerText;
         var brother4 = parent.children[6].innerText;
-        alert(brother4)
+        var brother5 = parent.children[7].innerText;
         var form = document.getElementById('buy_form');
-        var label = document.createElement("label");
-        form.appendChild(label);
-        t1 = "你购买的车次为：";
-        t2 = "出发时间：";
-        t3 = "到达时间：";
-        t4 = "票价：";
-        var text1 = document.createTextNode(t1 + brother1);
-        var text2 = document.createTextNode(t2 + brother2);
-        var text3 = document.createTextNode(t3 + brother3);
-        var text4 = document.createTextNode(t4 + brother4);
-        var ele1 = document.createElement("p");
-        label.appendChild(ele1);
-        ele1.appendChild(text1);
-        alert("123")
-        var ele2 = document.createElement("p");
-        label.appendChild(ele2);
-        ele2.appendChild(text2);
-        var ele3 = document.createElement("p");
-        label.appendChild(ele3);
-        ele3.appendChild(text3);
-        var ele4 = document.createElement("p");
-        label.appendChild(ele4);
-        ele4.appendChild(text4);
+        var label = form.children[1];
+        var p1 = label.children[0];
+        p1.innerText = p1.innerText.substr(0, 8) + brother1;
+        var p2 = label.children[1];
+        p2.innerText = p2.innerText.substr(0, 5) + brother2;
+        var p3 = label.children[2];
+        p3.innerText = p3.innerText.substr(0, 5) + brother3;
+        var seatdiv = document.getElementsByClassName("seatclass")[0];
+        var seatDiv1 = seatdiv.children[0];
+        seatDiv1.innerText = seatDiv1.innerText +
+
     }
 </script>
 
 <script>
     var close = my$('close');
     close.onclick = function () {
-        var paras = document.getElementsByTagName("label");
-        for (i = 0; i < paras.length; i++) {
-            //删除元素 元素.parentNode.removeChild(元素);
-            if (paras[i] != null)
-                paras[i].parentNode.removeChild(paras[i]);
-        }
         box.style.display = 'none';
         hidden.style.display = 'none';
         box.style.top = '200px';

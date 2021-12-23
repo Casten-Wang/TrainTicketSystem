@@ -4,7 +4,6 @@ body {
 }
 
 
-
 #container {
     display: flex;
     justify-content: center;
@@ -26,8 +25,8 @@ body {
 /* 盒子 */
 #box {
     color: #fff;
-    width: 30%;
-    height: 40%;
+    width: 40%;
+    height: 50%;
     background-color: #40527e;
     display: none;
     flex-direction: column;
@@ -58,12 +57,14 @@ body {
     cursor: pointer;
 }
 
-form.addtrain {
-    padding: 30px;
+#buy_form {
+    /*width: 80%;*/
+    padding: 40px;
 }
 
+
 /* 输入框 */
-#box input {
+#box div.mysubmit {
     display: block;
     width: 100%;
     height: 25px;
@@ -72,9 +73,7 @@ form.addtrain {
     outline: none;
     padding: 20px;
     background-color: #536a9e;
-    color: #fff;
     text-align: center;
-
 }
 
 /* 改变placeholder的值 */
@@ -99,40 +98,18 @@ form.addtrain {
     background-color: #019191;
 }
 
+
+div.mytable {
+    width: 80%;
+    margin: auto;
+}
+
+div.mypage {
+    width: 80%;
+    margin: auto;
+}
+
 table th,
 table {
     text-align: center;
-}
-
-/* 分页栏 */
-#barcon {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-#barcon a {
-    margin: 0 auto;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: 1px solid #ddd;
-}
-
-#barcon a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#barcon a:hover:not(.active) {
-    background-color: #ddd;
-}
-
-div.mytable{
-    width: 80%;
-    margin: auto;
-}
-
-div.mypage{
-    width: 80%;
-    margin: auto;
 }
