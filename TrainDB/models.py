@@ -11,3 +11,11 @@ class TrainTable(models.Model):
     destination = models.CharField(max_length=10)
     firstclassprice = models.FloatField()
     secondclassprice = models.FloatField()
+
+    def __str__(self) -> str:
+        return self.train
+
+    class Meta:
+        ordering = ['train']
+        verbose_name = '火车'
+        verbose_name_plural = '车次' # 表单名称

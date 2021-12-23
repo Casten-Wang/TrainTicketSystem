@@ -26,9 +26,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# 指定simpleui默认的主题,指定一个文件名，相对路径就从simpleui的theme目录读取
+SIMPLEUI_DEFAULT_THEME = 'orange.css'
 # Application definition
-
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +132,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 继承系统User表并作为系统默认表
 AUTH_USER_MODEL = "UserDB.User"
+
+SIMPLEUI_ICON = {
+    '火车': 'fas fa-subway',
+    '车次':'fas fa-subway',
+    '车票表':'fas fa-ticket-alt',
+    '车票':'fas fa-table',
+    '座位表':'fas fa-chair',
+    '座位':'fas fa-chair',
+    '员工管理': 'fas fa-user-tie'
+}
+
+# 更改默认语言为中文
+LANGUAGE_CODE = 'zh-hans'
+
+# 去掉默认Logo或换成自己Logo链接
+SIMPLEUI_LOGO = 'http://a1.qpic.cn/psc?/V10igLnZ46L0y8/ruAMsa53pVQWN7FLK88i5t2rz80*eP3IIeRlWYVWVgnoHXLM01if3dyFTGvuvwNCgZAT1JjDj69bdMs8sB8lIND2mkrlcU8FxhnO5iNJLxc!/b&ek=1&kp=1&pt=0&bo=IAMgAyADIAMDEDU!&tl=1&vuin=1227271294&tm=1640192400&sce=60-1-1&rf=0-0'

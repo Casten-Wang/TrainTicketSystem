@@ -21,24 +21,24 @@
         </span>
     </span>
 
-        <form action="/train/{{ name }}">
+        <form action="/index/train/{{ name }}">
         <span id="middle">
             <span id="leave_city">
                 <label id="start">出发城市</label>
                 <div>
-                    <input type="text" id="start_city" name="start_city">
+                    <input type="text" id="start_city" name="origin">
                 </div>
             </span>
             <span id="arrive_city">
                 <label id="end">到达城市</label>
                 <div>
-                    <input type="text" id="end_city" name="end_city">
+                    <input type="text" id="end_city" name="destination">
                 </div>
             </span>
             <span id="arrive_time">
                 <label id="start" name="start_time">出发日期</label>
                 <div>
-                    <input type="date" id="start_date" name="start_date" value={{ start_date }}>
+                    <input type="date" id="start_date" name="begintime" value={{ start_date }}>
                 </div>
             </span>
             <button id="research" type="submit">
