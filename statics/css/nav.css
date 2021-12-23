@@ -2,8 +2,9 @@ div.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: 48px;
     overflow: hidden;
-    background-color: #262626;
+    background-image: linear-gradient(to right bottom, #da8342, #e45131)
 }
 
 div.nav li {
@@ -15,13 +16,21 @@ div.nav li:last-child {
     border-right: none;
 }
 
-div.nav li a, div.nav li div {
+div.nav li div,div.nav li a {
+    width: 190px;
+    height: 30px;
     display: block;
     color: #f6f6f1;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px;
     text-decoration: none;
 }
+
+div.myhome img {
+    float: left;
+}
+
+
 
 div.nav li a:hover:not(.active) {
     background-color: #111;

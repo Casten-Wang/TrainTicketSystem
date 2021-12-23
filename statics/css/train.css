@@ -1,5 +1,6 @@
 body {
     width: 100%;
+    background-color: #f1f1f1;
 }
 
 
@@ -25,8 +26,8 @@ body {
 /* 盒子 */
 #box {
     color: #fff;
-    width: 20%;
-    height: 70%;
+    width: 30%;
+    height: 40%;
     background-color: #40527e;
     display: none;
     flex-direction: column;
@@ -34,7 +35,7 @@ body {
     align-items: center;
     box-sizing: border-box;
     position: absolute;
-    top: 150px;
+    top: 250px;
 }
 
 /* 关闭按钮 */
@@ -124,4 +125,14 @@ table {
 
 #barcon a:hover:not(.active) {
     background-color: #ddd;
+}
+
+div.mytable{
+    width: 80%;
+    margin: auto;
+}
+
+div.mypage{
+    width: 80%;
+    margin: auto;
 }

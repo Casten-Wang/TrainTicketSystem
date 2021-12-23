@@ -13,6 +13,12 @@
 <body>
 <div class="nav">
     <ul>
+        <li>
+            <div class="myhome">
+                <img src="/statics/icons/主页.png">
+                <a href="/index/main">首页</a>
+            </div>
+        </li>
         <li style="float:right">
             <a href="/user/login">登出</a>
         </li>
@@ -24,6 +30,7 @@
         </li>
     </ul>
 </div>
+
 
 <div id="container">
     <!-- 背景黑色遮罩 -->
@@ -38,34 +45,39 @@
         </form>
     </div>
 </div>
-<table id="table_result" class="table table-bordered table-hover">
-    <tr>
-        <th>车次号</th>
-        <th>可载人数</th>
-        <th>出发时间</th>
-        <th>到达时间</th>
-        <th>出发地</th>
-        <th>目的地</th>
-        <th>一等座</th>
-        <th>二等座</th>
-        <th>操作</th>
-    </tr>
-    {% for i in page %}
+
+<div class="mytable">
+    <table id="table_result" class="table table-bordered table-hover">
         <tr>
-            <td>{{ i.train }}</td>
-            <td>{{ i.maxpeople }}</td>
-            <td>{{ i.begintime|date:"Y-m-d H:m:s" }}</td>
-            <td>{{ i.endtime|date:"Y-m-d H:m:s" }}</td>
-            <td>{{ i.origin }}</td>
-            <td>{{ i.destination }}</td>
-            <td>{{ i.firstclassprice }}</td>
-            <td>{{ i.secondclassprice }}</td>
-            <td class="buybutton{{ i }}" onclick="capture(this)">
-                <button>订票</button>
-            </td>
+            <th>车次号</th>
+            <th>可载人数</th>
+            <th>出发时间</th>
+            <th>到达时间</th>
+            <th>出发地</th>
+            <th>目的地</th>
+            <th>一等座</th>
+            <th>二等座</th>
+            <th>操作</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for i in page %}
+            <tr>
+                <td>{{ i.train }}</td>
+                <td>{{ i.maxpeople }}</td>
+                <td>{{ i.begintime|date:"Y-m-d H:m:s" }}</td>
+                <td>{{ i.endtime|date:"Y-m-d H:m:s" }}</td>
+                <td>{{ i.origin }}</td>
+                <td>{{ i.destination }}</td>
+                <td>{{ i.firstclassprice }}</td>
+                <td>{{ i.secondclassprice }}</td>
+                <td class="buybutton{{ i }}" onclick="capture(this)">
+                    <button>订票</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
 <div class="mypage">
     {% if page.has_previous %}
         <a href="?origin={{ myorigin }}&destination={{ mydestination }}&begintime={{ myDate }}&page=1">|&lt;第一页</a>
