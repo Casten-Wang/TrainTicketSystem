@@ -10,7 +10,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div id="all">
     <div id="result">
     <span id="head">
@@ -20,13 +19,24 @@
             <span class="glyphicon glyphicon-menu-right"></span>
         </span>
     </span>
-
         <form action="/index/train/{{ name }}">
         <span id="middle">
             <span id="leave_city">
                 <label id="start">出发城市</label>
                 <div>
-                    <input type="text" id="start_city" name="origin">
+                    <input type="text" id="start_city" name="origin" value="上海">
+                </div>
+                <div id="hot_city">
+                    <ul id="hot_city_head">热门城市</ul>
+                    <ul id="hot_city_body">
+                        <li>上海</li>
+                        <li>北京</li>
+                        <li>南京</li>
+                        <li>苏州</li>
+                        <li>淮安</li>
+                        <li>福州</li>
+                        <li>长沙</li>
+                    </ul>
                 </div>
             </span>
             <span id="arrive_city">
@@ -38,7 +48,7 @@
             <span id="arrive_time">
                 <label id="start" name="start_time">出发日期</label>
                 <div>
-                    <input type="date" id="start_date" name="begintime" value={{ start_date }}>
+                    <input type="date" id="start_date" name="begintime">
                 </div>
             </span>
             <button id="research" type="submit">
@@ -49,5 +59,45 @@
         </form>
     </div>
 </div>
+
+<script>
+    // 获取出发城市焦点，显示框
+    let start_city = document.getElementById("start_city");
+    start_city.addEventListener("focus", ShowHotCity);
+    start_city.addEventListener("blur", HiddenHotCity);
+    function ShowHotCity() {
+        document.getElementById("hot_city").style.marginLeft = "20%";
+        document.getElementById("hot_city").style.visibility = "visible";
+    }
+    function HiddenHotCity() {
+        document.getElementById("hot_city").style.visibility = "hidden";
+    }
+
+    // 将选择添加进入文本框
+    let hot_city = document.getElementsByTagName("li");
+    for(let city of hot_city){
+        city.addEventListener("mousedown", addCity);
+    }
+    function addCity() {
+        let citys = document.getElementById("hot_city");
+
+        if(citys.style.marginLeft !== "120%")
+            start_city.value = this.innerText;
+        else
+            end_city.value = this.innerText;
+    }
+
+    //终点下拉框
+    let end_city = document.getElementById("end_city");
+    end_city.addEventListener("focus", ShowHotCityEnd);
+    end_city.addEventListener("blur", HiddenHotCity);
+    function ShowHotCityEnd() {
+        let citys = document.getElementById("hot_city");
+        citys.style.marginLeft = "120%";
+        citys.style.visibility = "visible";
+    }
+
+</script>
+
 </body>
 </html>
