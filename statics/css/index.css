@@ -128,7 +128,7 @@ li:hover {
     cursor: pointer;
 }
 
-input {
+#start_city, #end_city, #start_date {
     outline-style: none;
     border: 1px solid #ccc;
     border-radius: 15px;
