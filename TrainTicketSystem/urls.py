@@ -10,4 +10,5 @@ urlpatterns = [
     path('', views.userlogin),
     path('user/', include('UserDB.urls')),
     path('index/', include('TrainDB.urls')),
+    path('ticket/', include('TicketDB.urls')),
 ]

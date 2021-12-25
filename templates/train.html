@@ -56,10 +56,11 @@
                     <span>二等座票价：</span>
                 </div>
             </div>
+            <input type="hidden" name="trainID" class="Tid">
+            <input type="hidden" name="myname" value="{{ user.username }}">
             <div class="mysubmit">
                 <input type="submit" value="购票" id="buy">
             </div>
-
         </form>
     </div>
 </div>
@@ -87,6 +88,7 @@
                 <td>{{ i.destination }}</td>
                 <td>{{ i.firstclassprice }}</td>
                 <td>{{ i.secondclassprice }}</td>
+                <td hidden>{{ i.id }}</td>
                 <td class="buybutton{{ i }}" onclick="capture(this)">
                     <button>订票</button>
                 </td>
@@ -108,6 +110,8 @@
     {% endif %}
 </div>
 
+<div hidden id="res">{{ result }}</div>
+
 <script>
     {# 点击订票 #}
 
@@ -124,6 +128,7 @@
         var brother3 = parent.children[3].innerText;
         var brother4 = parent.children[6].innerText;
         var brother5 = parent.children[7].innerText;
+        var brother6 = parent.children[8].innerText;
         var form = document.getElementById('buy_form');
         var label = form.children[1];
         var p1 = label.children[0];
@@ -139,6 +144,8 @@
         var seatDiv2 = seatdiv.children[1];
         var span2 = seatDiv2.children[1];
         span2.innerText = span2.innerText.substr(0, 6) + brother5;
+        var get_trainID = form.getElementsByClassName("Tid")[0]
+        get_trainID.value = brother6;
     }
 </script>
 
@@ -154,11 +161,6 @@
     function checkForm() {
         var form = document.getElementById('buy_form');
         form.submit();
-    }
-
-    var buy = document.getElementById("buy");
-    buy.onclick = function () {
-        alert("购票成功");
     }
 </script>
 
@@ -178,6 +180,21 @@
         box.style.left = '';
     }
 </script>
+
+<script>
+    result = document.getElementById("res")
+    result = result.innerHTML
+    if (result == "余额不足") {
+        alert("余额不足");
+    } else if (result == "余票不足") {
+        alert("余票不足");
+    } else if (result == "已经购买该车次，不能重复购票") {
+        alert("已经购买该车次，不能重复购票");
+    } else if (result == "订票成功") {
+        alert("订票成功");
+    }
+</script>
+
 </body>
 
 </html>

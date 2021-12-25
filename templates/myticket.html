@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>车次查询</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/statics/css/ticket.css" rel="stylesheet">
+    <link href="/statics/css/nav.css" rel="stylesheet">
+    <script src="/statics/js/Add.js"></script>
+</head>
+
+<body>
+<div class="nav">
+    <ul>
+        <li>
+            <div class="myhome">
+                <img src="/statics/icons/主页.png">
+                <a href="/index/main">首页</a>
+            </div>
+        </li>
+        <li style="float:right">
+            <a href="/user/login">登出</a>
+        </li>
+        <li style="float:right">
+            <div>余额 {{ user.balance }}</div>
+        </li>
+        <li style="float:right">
+            <div> {{ user.username }}</div>
+        </li>
+    </ul>
+</div>
+
+<div class="mytable">
+    <table id="table_result" class="table table-bordered table-hover">
+        <tr>
+
+            <th>车次</th>
+            <th>车厢</th>
+            <th>座位</th>
+            <th>出发时间</th>
+            <th>到达时间</th>
+            <th>出发地</th>
+            <th>目的地</th>
+            <th>购票时间</th>
+            <th>票价</th>
+            <th>操作</th>
+        </tr>
+        {% for i in page %}
+            <tr>
+                <td>{{ i.trainId.train }}</td>
+                <td>{{ i.seatId.carriage }}</td>
+                <td>{{ i.seatId.seat }}</td>
+                <td>{{ i.trainId.begintime|date:"Y-m-d H:m:s" }}</td>
+                <td>{{ i.trainId.endtime|date:"Y-m-d H:m:s" }}</td>
+                <td>{{ i.trainId.origin }}</td>
+                <td>{{ i.trainId.destination }}</td>
+                <td>{{ i.buytime|date:"Y-m-d H:m:s" }}</td>
+                <td>{{ i.price }}</td>
+                <td>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="ticketID" value="{{ i.id }}">
+                        <button type="submit">退票</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div hidden id="res">{{ result }}</div>
+
+<script>
+    result = document.getElementById("res")
+    result = result.innerHTML
+    if (result == "车票删除成功") {
+        alert("车票删除成功");
+    }
+</script>
+
+</body>
+</html>

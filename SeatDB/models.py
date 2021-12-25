@@ -6,10 +6,7 @@ class SeatTable(models.Model):
     carriage = models.CharField(max_length=10)
     seat = models.CharField(max_length=10)
 
-    def __str__(self) -> str:
-        return self.seat
-
     class Meta:
         ordering = ['seat']
         verbose_name = '座位表'
-        verbose_name_plural = '座位' # 表单名称
+        verbose_name_plural = '座位'  # 表单名称
