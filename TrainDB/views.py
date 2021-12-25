@@ -29,7 +29,8 @@ def showtrain(request):
         print("检查该用户是否已经购买该车次")
         notBuyFlag = True
         userID = User.objects.filter(username=request.POST["myname"]).values_list('id', flat=True)[0]
-        isBuyThisTrain = TicketTable.objects.filter(userId_id=userID)
+        trainID = request.POST["trainID"]
+        isBuyThisTrain = TicketTable.objects.filter(userId_id=userID, trainId_id=trainID)
         print(isBuyThisTrain)
         if len(isBuyThisTrain) == 0:
             print("尚未购买该车次，可以购买!")
@@ -39,8 +40,8 @@ def showtrain(request):
                 userID = User.objects.filter(username=request.POST["myname"]).values_list('id', flat=True)[0]
                 trainID = request.POST["trainID"]
                 print("----------")
-                firstSeatSoldList = TicketTable.objects.filter(seatId_id__gte=1, seatId_id__lte=5).values_list("seatId_id", flat=True)
-                secondSeatSoldList = TicketTable.objects.filter(seatId_id__gte=6, seatId_id__lte=20).values_list("seatId_id", flat=True)
+                firstSeatSoldList = TicketTable.objects.filter(trainId_id=trainID, seatId_id__gte=1, seatId_id__lte=5).values_list("seatId_id", flat=True)
+                secondSeatSoldList = TicketTable.objects.filter(trainId_id=trainID, seatId_id__gte=6, seatId_id__lte=20).values_list("seatId_id", flat=True)
                 print("一等座已售座位表：", firstSeatSoldList)
                 print("二等座已售座位表：", secondSeatSoldList)
                 firstSeatSoldNum = len(firstSeatSoldList)
@@ -49,7 +50,7 @@ def showtrain(request):
                 print("二等座已售票数：", secondSeatSoldNum)
                 print("----------")
                 firstSeatNotSoldNum = 5 - firstSeatSoldNum
-                secondSeatNotSoldNum = 5 - secondSeatSoldNum
+                secondSeatNotSoldNum = 15 - secondSeatSoldNum
                 print("----------")
                 if ticketClass == "firstclassprice" and firstSeatNotSoldNum > 0:
                     print("用户购买一等票，开始安排一等票座位")
