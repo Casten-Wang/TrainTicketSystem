@@ -20,7 +20,7 @@ def train_delete(request):
         print(request.POST)
         myid = request.POST["id"]
         print("delete")
-        data = TrainTable.objects.get(id=id)
+        data = TrainTable.objects.get(id=myid)
         data.delete()
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
@@ -62,7 +62,7 @@ def train_change(request):
         print(request.POST)
         my_train = request.POST["train"]
         print("修改")
-        data = TrainTable.objects.update(train=my_train)
+        TrainTable.objects.update(train=my_train)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -72,7 +72,7 @@ def maxpeople_change(request):
         print(request.POST)
         my_maxpeople = request.POST["maxpeople"]
         print("修改")
-        data = TrainTable.objects.update(maxpeople=my_maxpeople)
+        TrainTable.objects.update(maxpeople=my_maxpeople)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -82,7 +82,7 @@ def begintime_change(request):
         print(request.POST)
         my_begintime = request.POST["begintime"]
         print("修改")
-        data = TrainTable.objects.update(begintime=my_begintime)
+        TrainTable.objects.update(begintime=my_begintime)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -92,7 +92,7 @@ def endtime_change(request):
         print(request.POST)
         my_endtime = request.POST["begintime"]
         print("修改")
-        data = TrainTable.objects.update(endtime=my_endtime)
+        TrainTable.objects.update(endtime=my_endtime)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -102,7 +102,7 @@ def origin_change(request):
         print(request.POST)
         my_origin = request.POST["origin"]
         print("修改")
-        data = TrainTable.objects.update(origin=my_origin)
+        TrainTable.objects.update(origin=my_origin)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -112,7 +112,7 @@ def destination_change(request):
         print(request.POST)
         my_destination = request.POST["destination"]
         print("修改")
-        data = TrainTable.objects.update(destination=my_destination)
+        TrainTable.objects.update(destination=my_destination)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -122,7 +122,7 @@ def firstclassprice_change(request):
         print(request.POST)
         my_firstclassprice = request.POST["firstclassprice"]
         print("修改")
-        data = TrainTable.objects.update(firstclassprice=my_firstclassprice)
+        TrainTable.objects.update(firstclassprice=my_firstclassprice)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -132,7 +132,7 @@ def secondclassprice_change(request):
         print(request.POST)
         my_secondclassprice = request.POST["secondclassprice"]
         print("修改")
-        data = TrainTable.objects.update(secondclassprice=my_secondclassprice)
+        TrainTable.objects.update(secondclassprice=my_secondclassprice)
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
@@ -142,7 +142,7 @@ def user_delete(request):
         print(request.POST)
         myid = request.POST["id"]
         print("delete")
-        data = User.objects.get(id=id)
+        data = User.objects.get(id=myid)
         data.delete()
         return redirect('/admin/#/admin/UserDB/user/')
 
@@ -175,7 +175,7 @@ def username_change(request):
         print(request.POST)
         my_name = request.POST["name"]
         print("修改")
-        data = User.objects.update(username=my_name)
+        User.objects.update(username=my_name)
         return redirect('/admin/#/admin/UserDB/user/')
 
 
@@ -185,7 +185,7 @@ def sex_change(request):
         print(request.POST)
         my_sex = request.POST["sex"]
         print("修改")
-        data = User.objects.update(sex=my_sex)
+        User.objects.update(sex=my_sex)
         return redirect('/admin/#/admin/UserDB/user/')
 
 
@@ -195,7 +195,7 @@ def age_change(request):
         print(request.POST)
         my_age = request.POST["age"]
         print("修改")
-        data = User.objects.update(age=my_age)
+        User.objects.update(age=my_age)
         return redirect('/admin/#/admin/UserDB/user/')
 
 
@@ -205,7 +205,7 @@ def IDcard_change(request):
         print(request.POST)
         my_IDcard = request.POST["IDcard"]
         print("修改")
-        data = User.objects.update(id_card=my_IDcard)
+        User.objects.update(id_card=my_IDcard)
         return redirect('/admin/#/admin/UserDB/user/')
 
 
@@ -215,7 +215,7 @@ def balance_change(request):
         print(request.POST)
         my_balance = request.POST["balance"]
         print("修改")
-        data = User.objects.update(balance=my_balance)
+        User.objects.update(balance=my_balance)
         return redirect('/admin/#/admin/UserDB/user/')
 
 
@@ -254,7 +254,7 @@ def ticket_userid_change(request):
         print(request.POST)
         my_name = request.POST["name"]
         print("修改")
-        data = TrainTable.objects.update(userId_id=my_name)
+        TrainTable.objects.update(userId_id=my_name)
         return redirect('/admin/#/admin/TicketDB/tickettable/')
 
 
@@ -264,7 +264,7 @@ def ticket_trainid_change(request):
         print(request.POST)
         my_trainid = request.POST["trainid"]
         print("修改")
-        data = User.objects.update(trainId_id=my_trainid)
+        User.objects.update(trainId_id=my_trainid)
         return redirect('/admin/#/admin/TicketDB/tickettable/')
 
 
@@ -274,7 +274,7 @@ def ticket_seatid_change(request):
         print(request.POST)
         my_trainid = request.POST["seatnid"]
         print("修改")
-        data = User.objects.update(seatId_id=my_trainid)
+        User.objects.update(seatId_id=my_trainid)
         return redirect('/admin/#/admin/TicketDB/tickettable/')
 
 
@@ -284,7 +284,7 @@ def ticket_price_change(request):
         print(request.POST)
         my_price = request.POST["price"]
         print("修改")
-        data = User.objects.update(price=my_price)
+        User.objects.update(price=my_price)
         return redirect('/admin/#/admin/TicketDB/tickettable/')
 
 
@@ -321,7 +321,7 @@ def seat_seatid_change(request):
         print(request.POST)
         my_seatid = request.POST["seatid"]
         print("修改")
-        data = SeatTable.objects.update(id=my_seatid)
+        SeatTable.objects.update(id=my_seatid)
         return redirect('/admin/#/admin/SeatDB/seattable/')
 
 
@@ -331,7 +331,7 @@ def seat_carriage_change(request):
         print(request.POST)
         my_carriage = request.POST["carriage"]
         print("修改")
-        data = SeatTable.objects.update(carriage=my_carriage)
+        SeatTable.objects.update(carriage=my_carriage)
         return redirect('/admin/#/admin/SeatDB/seattable/')
 
 
@@ -341,5 +341,5 @@ def seat_seat_change(request):
         print(request.POST)
         my_seat = request.POST["seat"]
         print("修改")
-        data = SeatTable.objects.update(seat=my_seat)
+        SeatTable.objects.update(seat=my_seat)
         return redirect('/admin/#/admin/SeatDB/seattable/')
