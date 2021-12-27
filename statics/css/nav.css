@@ -16,7 +16,7 @@ div.nav li:last-child {
     border-right: none;
 }
 
-div.nav li div,div.nav li a {
+div.nav li div, div.nav li a {
     width: 190px;
     height: 30px;
     display: block;
