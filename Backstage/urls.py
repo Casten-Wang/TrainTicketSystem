@@ -12,6 +12,7 @@ urlpatterns = [
     path('destination_change', views.destination_change),
     path('firstclassprice_change', views.firstclassprice_change),
     path('secondclassprice_change', views.secondclassprice_change),
+    path('user_add', views.user_add),
     path('user_delete', views.user_delete),
     path('username_change', views.username_change),
     path('sex_change', views.sex_change),
@@ -29,5 +30,4 @@ urlpatterns = [
     path('seat_seatid_change', views.seat_seatid_change),
     path('seat_carriage_change', views.seat_carriage_change),
     path('seat_seat_change', views.seat_seat_change),
-
 ]
