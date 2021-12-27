@@ -88,8 +88,11 @@ def showtrain(request):
     myorigin = request.GET["origin"]
     mydestination = request.GET["destination"]
     myDate = request.GET["begintime"]
+
+    # 发现出发地或者目标地或者日期尚未输入
     if myorigin == "" or mydestination == "" or myDate == "":
         return render(request, 'index.html')
+
     print(myDate)
     myyear, mymonth, myday = myDate.split('-')
     datetime_filter = datetime(int(myyear), int(mymonth), int(myday))
