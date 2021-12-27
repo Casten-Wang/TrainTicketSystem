@@ -34,3 +34,16 @@ def userlogin(request):
         else:
             print(user_login_form.errors)
     return render(request, 'login.html')
+
+
+def addmoney(request):
+    if request.method == "POST":
+        print("POST")
+        print(request.POST)
+        myid = request.POST["myid"]
+        money = request.POST["givemoney"]
+        money = float(money)
+        mybalance = float(User.objects.filter(id=myid).values_list('balance', flat=True)[0])
+        User.objects.filter(id=myid).update(balance=mybalance + money)
+        return redirect('/index/main')
+    return render(request, 'bank.html')

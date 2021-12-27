@@ -14,6 +14,7 @@ from SeatDB.models import SeatTable
 def main(request):
     return render(request, 'index.html')
 
+
 def showtrain(request):
     if request.method == "POST":
         print("提交购票信息")

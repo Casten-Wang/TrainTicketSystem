@@ -1,23 +1,23 @@
 {% block content %}
-<!--银行卡绑定模块-->
-<!DOCTYPE html>
-<html lang="en">
+    <!--银行卡绑定模块-->
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <title>绑定银行卡</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../statics/css/login.css" rel="stylesheet">
-</head>
+    <head>
+        <title>绑定银行卡</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../statics/css/login.css" rel="stylesheet">
+    </head>
 
-<body>
-    <form class="login" method="GET" action='/bankuser/{{name}}'>
-        <h1>绑定银行卡</h1>
-        <input type="text" name="bankid" value="" required="" placeholder="银行卡号" />
-        <input type="password" name="balance" value="" required="" placeholder="初始金额" />
-        <input type="submit" value="绑定" />
+    <body>
+    <form class="login" method="post" action="">
+        {% csrf_token %}
+        <h1>用户充值</h1>
+        <input type="password" name="givemoney" value="" required="" placeholder="充值金额"/>
+        <input type="hidden" name="myid" value="{{ user.id }}">
+        <input type="submit" value="充值"/>
     </form>
-</body>
-
-</html>
+    </body>
+    </html>
 {% endblock %}
