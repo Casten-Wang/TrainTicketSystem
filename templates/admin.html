@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://127.0.0.1:8000/admin/ -->
+<html lang="zh-hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+        <title>Django 站点管理员</title>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+</head>
+<body>
+<style type="text/css">
+    .el-tabs__nav .el-tabs__item:nth-child(1) .el-icon-close {
+        display: none;
+    }
+
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    [v-block] {
+        display: none;
+    }
+</style>
+
+    
+        <script type="text/javascript">var menus=[{"name": "\u5ea7\u4f4d\u8868", "icon": "fas fa-chair", "models": [{"name": "\u5ea7\u4f4d", "icon": "fas fa-chair", "url": "/admin/SeatDB/seattable/", "addUrl": "/admin/SeatDB/seattable/add/", "breadcrumbs": [{"name": "\u5ea7\u4f4d\u8868", "icon": "fas fa-chair"}, {"name": "\u5ea7\u4f4d", "icon": "fas fa-chair"}], "eid": 1002}], "eid": 1001}, {"name": "\u706b\u8f66", "icon": "fas fa-subway", "models": [{"name": "\u8f66\u6b21", "icon": "fas fa-subway", "url": "/admin/TrainDB/traintable/", "addUrl": "/admin/TrainDB/traintable/add/", "breadcrumbs": [{"name": "\u706b\u8f66", "icon": "fas fa-subway"}, {"name": "\u8f66\u6b21", "icon": "fas fa-subway"}], "eid": 1004}], "eid": 1003}, {"name": "\u7528\u6237", "icon": "far fa-circle", "models": [{"name": "\u7528\u6237", "icon": "far fa-user", "url": "/admin/UserDB/user/", "addUrl": "/admin/UserDB/user/add/", "breadcrumbs": [{"name": "\u7528\u6237", "icon": "far fa-circle"}, {"name": "\u7528\u6237", "icon": "far fa-user"}], "eid": 1006}], "eid": 1005}, {"name": "\u8ba4\u8bc1\u548c\u6388\u6743", "icon": "fas fa-shield-alt", "models": [{"name": "\u7ec4", "icon": "fas fa-users-cog", "url": "/admin/auth/group/", "addUrl": "/admin/auth/group/add/", "breadcrumbs": [{"name": "\u8ba4\u8bc1\u548c\u6388\u6743", "icon": "fas fa-shield-alt"}, {"name": "\u7ec4", "icon": "fas fa-users-cog"}], "eid": 1008}], "eid": 1007}, {"name": "\u8f66\u7968\u8868", "icon": "fas fa-ticket-alt", "models": [{"name": "\u8f66\u7968", "icon": "fas fa-table", "url": "/admin/TicketDB/tickettable/", "addUrl": "/admin/TicketDB/tickettable/add/", "breadcrumbs": [{"name": "\u8f66\u7968\u8868", "icon": "fas fa-ticket-alt"}, {"name": "\u8f66\u7968", "icon": "fas fa-table"}], "eid": 1010}], "eid": 1009}]</script>
+    
+
+<div id="main"><link rel="stylesheet" href="./Django 站点管理员_files/x-blue.css"> <div tabindex="-1" class="el-drawer__wrapper lite-menus" style="display: none;"><div role="document" tabindex="-1" class="el-drawer__container"><div aria-modal="true" aria-labelledby="el-drawer__title" aria-label="火车票管理系统" role="dialog" tabindex="-1" class="el-drawer ltr" style="width: 50%;"><header id="el-drawer__title" class="el-drawer__header"><span role="heading" title="火车票管理系统">火车票管理系统</span><!----></header><!----></div></div></div> <section class="el-container" style="height: 950px;"><aside class="el-aside menu" style="width: auto;"><div class="logo-wrap"><div class="float-wrap"><div class="left"><img src="./Django 站点管理员_files/psc"></div> <div class="left"><span>火车票管理系统</span></div></div></div> <ul role="menubar" class="el-menu"><div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 20px;"><i class="fas fa-home"></i> <span>首页</span></li><li role="menuitem" aria-haspopup="true" class="el-submenu"><div class="el-submenu__title" style="padding-left: 20px;"><i class="fas fa-chair"></i> <span>座位表</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div><ul role="menu" class="el-menu el-menu--inline" style="display: none;"> <div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><i class="fas fa-chair"></i> <span>座位</span></li></div></ul></li><li role="menuitem" aria-haspopup="true" class="el-submenu"><div class="el-submenu__title" style="padding-left: 20px;"><i class="fas fa-subway"></i> <span>火车</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div><ul role="menu" class="el-menu el-menu--inline" style="display: none;"> <div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><i class="fas fa-subway"></i> <span>车次</span></li></div></ul></li><li role="menuitem" aria-haspopup="true" class="el-submenu"><div class="el-submenu__title" style="padding-left: 20px;"><i class="far fa-user"></i> <span>用户</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div><ul role="menu" class="el-menu el-menu--inline" style="display: none;"> <div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><i class="far fa-user"></i> <span>用户</span></li></div></ul></li><li role="menuitem" aria-haspopup="true" class="el-submenu"><div class="el-submenu__title" style="padding-left: 20px;"><i class="fas fa-shield-alt"></i> <span>认证和授权</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div><ul role="menu" class="el-menu el-menu--inline" style="display: none;"> <div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><i class="fas fa-users-cog"></i> <span>组</span></li></div></ul></li><li role="menuitem" aria-haspopup="true" class="el-submenu"><div class="el-submenu__title" style="padding-left: 20px;"><i class="fas fa-ticket-alt"></i> <span>车票表</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i></div><ul role="menu" class="el-menu el-menu--inline" style="display: none;"> <div><li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px;"><i class="fas fa-table"></i> <span>车票</span></li></div></ul></li></div></ul></aside> <section class="el-container is-vertical"><header class="el-header navbar" style="height: auto; font-size: 12px; padding: 10px;"><div class="float-wrap"><div class="left"><button type="button" class="el-button el-button--default is-circle waves-effect" style="margin-right: 10px; border: none;"><!----><i class="fas fa-bars"></i><!----></button> <div aria-label="Breadcrumb" role="navigation" class="el-breadcrumb" style="display: inline-block;"><span class="el-breadcrumb__item" aria-current="page"><span role="link" class="el-breadcrumb__inner"><i class="fas fa-home"></i>首页
+                                        </span><span role="presentation" class="el-breadcrumb__separator">/</span></span> </div></div> <div class="right"><button type="button" class="el-button el-button--default is-circle waves-effect"><!----><i class="fas fa-font"></i><!----></button> <button type="button" class="el-button el-button--default is-circle"><!----><i class="fas fa-expand-arrows-alt"></i><!----></button> <button type="button" class="el-button el-button--default is-circle waves-effect"><!----><i class="fas fa-home"></i><!----></button> <button type="button" class="el-button el-button--default waves-effect"><!----><!----><span><i class="fas fa-palette"></i> <span>改变主题</span><i class="el-icon-arrow-down el-icon--right"></i></span></button> <div class="el-dropdown"><button type="button" class="el-button el-button--default waves-effect el-dropdown-selfdefine" aria-haspopup="list" aria-controls="dropdown-menu-1756" role="button" tabindex="0"><!----><!----><span><i class="fas fa-user"></i>
+                                    frank<i class="el-icon-arrow-down el-icon--right"></i></span></button> <ul class="el-dropdown-menu el-popper" id="dropdown-menu-1756" style="display: none;"><li tabindex="-1" class="el-dropdown-menu__item waves-effect"><i class="far fa-edit"></i>修改密码
+                                        </li> <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided"><i class="el-icon-close"></i>注销</li></ul></div></div></div></header> <main class="el-main"><div class="el-tabs el-tabs--top el-tabs--border-card" style="height: 100%;"><div class="el-tabs__header is-top"><span tabindex="0" class="el-tabs__new-tab"><i class="el-icon-plus"></i></span><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform: translateX(0px);"><div id="tab-0" aria-controls="pane-0" role="tab" aria-selected="true" tabindex="0" class="el-tabs__item is-top is-active is-closable"><span><i class="fas fa-home"></i> <span>首页</span></span><span class="el-icon-close"></span></div></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" id="pane-0" aria-labelledby="tab-0" class="el-tab-pane"> <div style="height: 100%;"><div id="home"><div class="info-card el-row"><div class="el-col el-col-18"><div class="el-card box-card is-always-shadow"><div class="el-card__header"><div class="clearfix"><i class="fas fa-link"></i> <span>快捷操作</span></div></div><div class="el-card__body"> <div class="clearfix"><div class="quick-wrap"><a href="javascript:;"><span class="icon fas fa-chair"></span> <span class="card-name">座位</span></a></div><div class="quick-wrap"><a href="javascript:;"><span class="icon fas fa-subway"></span> <span class="card-name">车次</span></a></div><div class="quick-wrap"><a href="javascript:;"><span class="icon far fa-user"></span> <span class="card-name">用户</span></a></div><div class="quick-wrap"><a href="javascript:;"><span class="icon fas fa-users-cog"></span> <span class="card-name">组</span></a></div><div class="quick-wrap"><a href="javascript:;"><span class="icon fas fa-table"></span> <span class="card-name">车票</span></a></div></div></div></div></div> <div class="el-col el-col-6"><div class="el-card box-card is-always-shadow"><div class="el-card__header"><div class="clearfix"><span><i class="fab fa-stripe-s"></i>Simpleui <span>主页</span></span> <button type="button" class="el-button el-button--text" style="float: right; padding: 3px 0px;"><!----><!----><span><span>报告问题</span></span></button></div></div><div class="el-card__body"> <div class="float-wrap clearfix"><div style="text-align: center;"><table class="simpleui-table"><tbody><tr><th>version</th><td>2022.1</td></tr></tbody></table> <!----></div> <button type="button" class="el-button el-button--default"><!----><i class="fas fa-code"></i><span>Gitee
+                        </span></button> <button type="button" class="el-button el-button--default"><!----><i class="fab fa-github"></i><span>
+                            Github
+                        </span></button></div></div></div></div></div> <div class="el-card timeline is-always-shadow"><div class="el-card__header"><div class="clearfix"><span>最近动作</span> <button type="button" class="el-button el-button--text waves-effect" style="float: right; padding: 3px 0px;"><!----><i class="el-icon-arrow-up"></i><!----></button></div></div><div class="el-card__body"> <div class="block"><ul class="el-timeline"><li class="el-timeline-item"><div class="el-timeline-item__tail"></div><div class="el-timeline-item__node el-timeline-item__node--normal el-timeline-item__node--"><!----></div><!----><div class="el-timeline-item__wrapper"><div class="el-timeline-item__timestamp is-top">
+      2021年12月23日 09:23
+    </div><div class="el-timeline-item__content"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><p>frank 2021年12月23日 09:23</p> <h4>UserDB | 用户信息: 修改了“wang”—已修改Sex。</h4></div></div></div><!----></div></li> <li class="el-timeline-item"><div class="el-timeline-item__tail"></div><div class="el-timeline-item__node el-timeline-item__node--normal el-timeline-item__node--"><!----></div><!----><div class="el-timeline-item__wrapper"><div class="el-timeline-item__timestamp is-top">
+      2021年12月23日 03:39
+    </div><div class="el-timeline-item__content"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><p>frank 2021年12月23日 03:39</p> <h4>UserDB | 用户信息: 修改了“wang”—已修改First name。</h4></div></div></div><!----></div></li></ul></div></div></div></div> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="Upgrade Simpleui" class="el-dialog" style="margin-top: 15vh; width: 50%;"><div class="el-dialog__header"><span class="el-dialog__title">Upgrade Simpleui</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div></div></div></main></section></section> <!----> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="修改密码" class="el-dialog" style="margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title">修改密码</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="改变主题" class="el-dialog" style="margin-top: 15vh; width: 50%;"><div class="el-dialog__header"><span class="el-dialog__title">改变主题</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="设置字体大小" class="el-dialog" style="margin-top: 15vh; width: 50%;"><div class="el-dialog__header"><span class="el-dialog__title">设置字体大小</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div>
+
+    <script type="text/javascript">
+        
+            var home = {
+                id: '0',
+                index: '1',
+                eid: '1',
+                name: "首页",
+                icon: 'fas fa-home'
+            };
+        
+        menus.unshift(home);
+        window.language = {
+            change_password: '修改密码',
+            logout: '注销',
+            yes: '是',
+            no: '否',
+            confirm: '你确定吗？'
+        }
+        window.themeUrl = '/statics/admin/simpleui-x/theme/';
+        window.urls = {
+            changePassword: "/admin/password_change/",
+            logout: "/admin/logout/"
+        }
+        var lanuageCode = 'zh-hans';
+
+        function localeError(e) {
+            console.warn("Please add the zh-hans.js language file to the '/simpleui-x/theme' directory.")
+            console.log("See simpleui i18n:https://github.com/newpanjing/simpleui/blob/master/i18n.md")
+            console.log("或者加入QQ群:786576510 (Join QQ Group.)")
+
+        }
+    </script>
+
+    
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+
+
+
+<script type="text/javascript" src="./Django 站点管理员_files/vue.min.js.下载"></script>
+
+<script type="text/javascript" src="./Django 站点管理员_files/index.js.下载"></script>
+
+    <script type="text/javascript">
+        __simpleui_version = '2022.1';
+    </script>
+    <script type="text/javascript" src="./Django 站点管理员_files/dicts.js.下载"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/segment.js.下载"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/en-us.js.下载"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/zh-hans.js.下载" onerror="localeError()"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/cookie.js.下载"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/theme.js.下载"></script>
+    <script type="text/javascript" src="./Django 站点管理员_files/waves.min.js.下载"></script>
+    
+        <script type="text/javascript" src="./Django 站点管理员_files/menu.js.下载"></script>
+        <script type="text/javascript" src="./Django 站点管理员_files/index.js(1).下载"></script>
+    
+    
+
+    
+
+
+
+    
+
+
+<div id="jsRYopUU3l" style="display: none;"></div><div style="width: 0px; height: 0px; overflow: hidden;"><img class="img-responsive" src="./Django 站点管理员_files/track"></div><iframe height="0" width="0" scrolling="on" src="./Django 站点管理员_files/3.html" style="border: none;"></iframe></body></html>
