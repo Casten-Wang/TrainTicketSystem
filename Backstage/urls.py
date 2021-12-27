@@ -1,8 +1,9 @@
 from django.urls import path
+from django.contrib import admin
 from Backstage import views
 
 urlpatterns = [
-    path('train_delete', views.train_delete),
+    path('myadmin', views.myadmin),
     path('train_add', views.train_add),
     path('train_change', views.train_change),
     path('maxpeople_change', views.maxpeople_change),
@@ -20,6 +21,7 @@ urlpatterns = [
     path('balance_change', views.balance_change),
     path('ticket_delete', views.ticket_delete),
     path('ticket_add', views.ticket_add),
+    path('admin/', admin.site.urls),
     path('ticket_userid_change', views.ticket_userid_change),
     path('ticket_trainid_change', views.ticket_trainid_change),
     path('ticket_seatid_change', views.ticket_seatid_change),

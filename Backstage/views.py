@@ -52,6 +52,10 @@ def train_add(request):
         return redirect('/admin/#/admin/TrainDB/traintable/')
 
 
+def myadmin(request):
+    return render(request, 'admin.html', locals())
+
+
 def train_change(request):
     if request.method == "POST":
         print("GET the POST")
